@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Veterinaria - Registro</title>
+    <style>
+        body { font-family: sans-serif; margin: 40px; background-color: #f4f4f4; }
+        form { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        input { display: block; margin-bottom: 10px; width: 100%; padding: 8px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #007bff; color: white; }
+    </style>
+</head>
+<body>
+    <h1>🏥 Registro de Mascotas - Veterinaria</h1>
+    
+    <form action="/registrar" method="POST">
+        <input type="text" name="nombre" placeholder="Nombre de la mascota" required>
+        <input type="text" name="especie" placeholder="Especie (Perro, Gato...)" required>
+        <input type="number" name="edad" placeholder="Edad" required>
+        <input type="text" name="dueno" placeholder="Nombre del dueño" required>
+        <button type="submit" style="background: #28a745; color: white; padding: 10px; border: none; cursor: pointer;">Registrar Paciente</button>
+    </form>
+
+    <h2>📋 Pacientes en Espera</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Especie</th>
+            <th>Edad</th>
+            <th>Dueño</th>
+        </tr>
+        {% for p in pacientes %}
+        <tr>
+            <td>{{ p[0] }}</td>
+            <td>{{ p[1] }}</td>
+            <td>{{ p[2] }}</td>
+            <td>{{ p[3] }}</td>
+            <td>{{ p[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
